@@ -9,3 +9,4 @@ Slack と Sns をつなぎます。
 ````
 SLS_SLACK_URL=https://hooks.slack.com/services/XXX/XXX/XXXXX ./node_modules/.bin/sls deploy -v
 ````
+
