@@ -11,14 +11,14 @@
 #
 # Happy Coding!
 
-service: sls-slack-sns
+service: sls-jiho
 
 provider:
   name: aws
   runtime: nodejs4.3
   environment:
     SLS_SLACK_URL: ${env:SLS_SLACK_URL}
- iamRoleStatements:
+  iamRoleStatements:
     - Effect: Allow
       Action:
         - "sns:Publish"
@@ -58,7 +58,7 @@ custom:
 
 
 functions:
-  slack:
+  jiho:
     handler: handler.jiho
     events:
       - schedule: cron(0 * ? * 2-7 *)
