@@ -4,13 +4,13 @@ const webpack = require("webpack")
 
 module.exports = {
     entry: './handler.js',
-    output: {
-        libraryTarget: 'commonjs',
-        path: '.webpack',
-        filename: 'dispatcher.js', // this should match the first part of function handler in serverless.yml
-    },
+    // output: {
+    //     libraryTarget: 'commonjs',
+    //     path: '.webpack',
+    //     filename: 'dispatcher.js', // this should match the first part of function handler in serverless.yml
+    // },
     externals: [
-        "aws-sdk","superagent"
+        "aws-sdk","moment-timezone"
     ],
     resolve:{
         extensions: ["", ".webpack.js", ".js" ]
