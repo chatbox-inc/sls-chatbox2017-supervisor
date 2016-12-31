@@ -28,10 +28,10 @@ class Jiho{
 
     getMessage(text)
     {
-        return {
+        return JSON.stringify({
             channel: "#chatbox",
             text
-        }
+        })
     }
 
     getDoneCb(cb)
@@ -50,14 +50,19 @@ class Jiho{
         const hour = moment().tz("Asia/Tokyo").hour()
         const text = textList[hour]
 
+        console.log(this)
+
+        const Message = this.getMessage()
+        const TopicArn = this.topicArn
+        const done = this.getDoneCb(cb)
         if(text){
             sns.publish({
-                Message: this.getMessage(),
+                Message,
                 Subject: "SLS JIHO APPLICATION",
-                TopicArn: this.topicArn
-            }, getDoneCb(cb))
+                TopicArn
+            }, done)
         }else{
-            callback(null)
+            cb(null)
         }
     }
 }
