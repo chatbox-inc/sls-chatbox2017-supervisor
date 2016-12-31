@@ -48,11 +48,11 @@ class Jiho{
     run(event, context, cb)
     {
         const hour = moment().tz("Asia/Tokyo").hour()
-        const text = textList[hour] || "勤務時間外です";
-        const Message = this.getMessage(text)
-        const TopicArn = this.topicArn
-        const done = this.getDoneCb(cb)
+        const text = textList[hour];
         if(text){
+            const Message = this.getMessage(text)
+            const TopicArn = this.topicArn
+            const done = this.getDoneCb(cb)
             sns.publish({
                 Message,
                 Subject: "SLS JIHO APPLICATION",
