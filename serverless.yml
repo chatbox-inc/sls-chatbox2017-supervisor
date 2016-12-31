@@ -18,6 +18,11 @@ provider:
   runtime: nodejs4.3
   environment:
     SLS_SLACK_URL: ${env:SLS_SLACK_URL}
+ iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - "sns:Publish"
+      Resource: "arn:aws:sns:us-east-1:122271255246:slack-sns"
 
 plugins:
   - serverless-webpack
@@ -54,9 +59,14 @@ custom:
 
 functions:
   slack:
-    handler: dispatcher.slack
+    handler: handler.jiho
     events:
-      - sns: slack-sns
+      - schedule: cron(0 * ? * 2-7 *)
+      - http:
+          path: serverless/jiho
+          method: get
+    environment:
+      SLS_TOPICARN: "arn:aws:sns:us-east-1:122271255246:slack-sns"
 
 # you can add CloudFormation resource templates here
 #resources:
