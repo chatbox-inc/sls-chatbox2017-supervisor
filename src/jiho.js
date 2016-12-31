@@ -48,7 +48,7 @@ class Jiho{
     run(event, context, cb)
     {
         const hour = moment().tz("Asia/Tokyo").hour()
-        const text = textList[hour]
+        const text = textList[hour] || "勤務時間外です";
 
         console.log(this)
 
