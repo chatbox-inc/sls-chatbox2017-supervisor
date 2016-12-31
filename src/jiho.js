@@ -49,10 +49,7 @@ class Jiho{
     {
         const hour = moment().tz("Asia/Tokyo").hour()
         const text = textList[hour] || "勤務時間外です";
-
-        console.log(this)
-
-        const Message = this.getMessage()
+        const Message = this.getMessage(text)
         const TopicArn = this.topicArn
         const done = this.getDoneCb(cb)
         if(text){
