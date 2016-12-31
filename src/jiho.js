@@ -49,17 +49,17 @@ class Jiho{
     {
         const hour = moment().tz("Asia/Tokyo").hour()
         const text = textList[hour];
+        const done = this.getDoneCb(cb)
         if(text){
             const Message = this.getMessage(text)
             const TopicArn = this.topicArn
-            const done = this.getDoneCb(cb)
             sns.publish({
                 Message,
                 Subject: "SLS JIHO APPLICATION",
                 TopicArn
             }, done)
         }else{
-            cb(null)
+            done(null,"time outdated")
         }
     }
 }
