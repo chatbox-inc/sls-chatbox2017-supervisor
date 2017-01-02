@@ -1,10 +1,10 @@
 'use strict';
-const Jiho = require("./src/jiho")
+const Supervise = require("./src/supervise")
 
 const topicArn = process.env.SLS_TOPICARN
 
-const jiho = new Jiho(topicArn)
+const supervise = new Supervise(topicArn)
 
-module.exports.jiho = (event, context, cb)=>{
-    jiho.run(event, context, cb)
+module.exports.supervise = (event, context, cb)=>{
+    supervise.run(event, context, cb)
 }

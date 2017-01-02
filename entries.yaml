@@ -1,0 +1,22 @@
+entries:
+  simple:
+    - "/"
+    - "/about"
+    - "/contact"
+    - "/member"
+    - "/service"
+    - "/member/mikakane"
+    - "/member/shono"
+    - "/member/yasui"
+    - "/service/design"
+    - "/service/grow"
+    - "/service/enhance"
+    - "/service/system"
+    - "/page/member/shono"
+    - "/page/member/mikakane"
+    - "/page/member/yasui"
+    - "/page/about"
+    - "/404.html"
+    - "/hoge"
+  simple404:
+    - "/hogehoge"

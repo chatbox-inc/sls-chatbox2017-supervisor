@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: sls-jiho
+service: sls-chatbox2017-supervisor
 
 provider:
   name: aws
@@ -58,13 +58,10 @@ custom:
 
 
 functions:
-  jiho:
-    handler: handler.jiho
+  test:
+    handler: handler.supervise
     events:
-      - schedule: cron(0 * ? * 2-7 *)
-      - http:
-          path: serverless/jiho
-          method: get
+      - schedule: rate(1 hour)
     environment:
       SLS_TOPICARN: ${env:SLS_TOPICARN}
 

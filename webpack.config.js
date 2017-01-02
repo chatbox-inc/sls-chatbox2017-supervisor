@@ -10,7 +10,7 @@ module.exports = {
     //     filename: 'dispatcher.js', // this should match the first part of function handler in serverless.yml
     // },
     externals: [
-        "aws-sdk","moment-timezone"
+        "aws-sdk","superagent"
     ],
     resolve:{
         extensions: ["", ".webpack.js", ".js" ]
@@ -23,10 +23,6 @@ module.exports = {
                 loaders: ['babel'],
                 include: __dirname,
                 exclude: /node_modules/,
-            },
-            {
-                test: /\.json$/,
-                loaders: ['json'],
             },
         ],
     }
