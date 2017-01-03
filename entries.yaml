@@ -17,6 +17,5 @@ entries:
     - "/page/member/yasui"
     - "/page/about"
     - "/404.html"
-    - "/hoge"
   simple404:
     - "/hogehoge"
