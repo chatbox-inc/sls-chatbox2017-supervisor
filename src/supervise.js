@@ -11,8 +11,7 @@ class Supervise{
         this.topicArn = topicArn
     }
 
-    run(event, context, cb)
-    {
+    daily(event, context, cb){
         let pList = [];
         const config = require("json!yaml!../entries.yaml")
 
@@ -25,6 +24,21 @@ class Supervise{
             pList.push(simpleTest("https://chatbox-inc.com" + url,404).request())
         })
 
+        this.run(pList,cb)
+    }
+
+    hourly(event, context, cb){
+        let pList = [];
+        const config = require("json!yaml!../entries.yaml")
+
+        config.entries.simple.forEach((url)=>{
+            pList.push(simpleTest("https://chatbox-inc.com" + url).request())
+        })
+        this.run(pList,cb)
+    }
+
+    run(pList, cb)
+    {
         const done = this.done(cb)
 
         Promise.all(pList).then((resultAll)=>{

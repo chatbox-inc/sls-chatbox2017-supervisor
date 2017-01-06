@@ -58,10 +58,16 @@ custom:
 
 
 functions:
-  test:
+  daily:
     handler: handler.supervise
     events:
       - schedule: rate(1 hour)
+    environment:
+      SLS_TOPICARN: ${env:SLS_TOPICARN}
+  hourly:
+    handler: handler.supervise
+    events:
+      - schedule: rate(1 day)
     environment:
       SLS_TOPICARN: ${env:SLS_TOPICARN}
 

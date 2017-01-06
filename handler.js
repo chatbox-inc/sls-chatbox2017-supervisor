@@ -5,6 +5,11 @@ const topicArn = process.env.SLS_TOPICARN
 
 const supervise = new Supervise(topicArn)
 
-module.exports.supervise = (event, context, cb)=>{
-    supervise.run(event, context, cb)
+module.exports.daily = (event, context, cb)=>{
+    supervise.daily(event, context, cb)
 }
+
+module.exports.hourly = (event, context, cb)=>{
+    supervise.hourly(event, context, cb)
+}
+
